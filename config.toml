@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://starter-hugo-debug-site.netlify.com/"
 languageCode = "en-us"
 title = "Debug"
 disableKinds = ["taxonomy", "taxonomyTerm"]
