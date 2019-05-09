@@ -1,6 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ range .Pages.ByTitle }}
-    <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+    <a href="{{ .Permalink }}">{{ .Permalink }}</a>
+    <br>
   {{ end }}
 {{ end }}

@@ -1,5 +1,7 @@
 # Starter Hugo debug site
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/72f36678-5cec-40a4-bd09-6053b3071fad/deploy-status)](https://app.netlify.com/sites/starter-hugo-debug-site/deploys)
+
 A starter project for debugging Hugo [forum](https://discourse.gohugo.io/) questions. 
 
 ## Demo
