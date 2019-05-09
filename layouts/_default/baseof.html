@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <title>{{ .Title }} | {{ site.Title }}</title>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/">Home</a>
+      <h1>Debug</h1>
+      <table class="table table-sm table-bordered">
+        <tr>
+          <td>Hugo version</td>
+          <td><code>{{ hugo.Version }}</code></td>
+        </tr>
+        <tr>
+          <td>Site vars</td>
+          <td>TODO</td>
+        </tr>
+        <tr>
+          <td>Page vars</td>
+          <td>TODO</td>
+        </tr>
+      </table>
+      {{ block "main" . }}{{ end }}
+    </div>
+  </body>
+</html>
