@@ -2,6 +2,10 @@
 
 A starter project for debugging Hugo [forum](https://discourse.gohugo.io/) questions. 
 
+## Demo
+
+https://starter-hugo-debug-site.netlify.com/
+
 ## Usage
 
 ```
