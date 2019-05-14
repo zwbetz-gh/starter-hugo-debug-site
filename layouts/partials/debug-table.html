@@ -1,55 +1,7 @@
-{{ $class := "" }}
-
-<h2>Hugo</h2>
-<table class="{{ $class }}">
-  <tr>
-    <td>hugo.Version</td>
-    <td>{{ hugo.Version }}</td>
-  </tr>
-  <tr>
-    <td>hugo.BuildDate</td>
-    <td>{{ hugo.BuildDate }}</td>
-  </tr>
-  <tr>
-    <td>hugo.Environment</td>
-    <td>{{ hugo.Environment }}</td>
-  </tr>
-</table>
-
-<h2>Site</h2>
-<table class="{{ $class }}">
-  <tr>
-    <td>site.Home</td>
-    <td>{{ site.Home }}</td>
-  </tr>
-  <tr>
-    <td>site.IsServer</td>
-    <td>{{ site.IsServer }}</td>
-  </tr>
-  <tr>
-    <td>site.Language.Lang</td>
-    <td>{{ site.Language.Lang }}</td>
-  </tr>
-  <tr>
-    <td>site.LastChange</td>
-    <td>{{ site.LastChange }}</td>
-  </tr>
-  <tr>
-    <td>site.Menus</td>
-    <td>{{ site.Menus }}</td>
-  </tr>
-  <tr>
-    <td>site.Pages</td>
-    <td>{{ site.Pages }}</td>
-  </tr>
-</table>
+{{ $class := "usa-table" }}
 
 <h2>Page</h2>
 <table class="{{ $class }}">
-  <tr>
-    <td>.AlternativeOutputFormats</td>
-    <td>{{ .AlternativeOutputFormats }}</td>
-  </tr>
   <tr>
     <td>.Date</td>
     <td>{{ .Date }}</td>
@@ -87,8 +39,26 @@
     <td>{{ .NextInSection }}</td>
   </tr>
   <tr>
+    <td>.OutputFormats</td>
+    <td>
+      <details>
+        <summary>{{ len .OutputFormats }}</summary>
+        {{ range .OutputFormats }}
+          {{ .Name }}<br>
+        {{ end }}
+      </details>
+    </td>
+  </tr>
+  <tr>
     <td>.Pages</td>
-    <td>{{ .Pages }}</td>
+    <td>
+      <details>
+        <summary>{{ .Pages }}</summary>
+        {{ range .Pages }}
+          {{ . }}<br>
+        {{ end }}
+      </details>
+    </td>
   </tr>
   <tr>
     <td>.Permalink</td>
@@ -97,6 +67,10 @@
   <tr>
     <td>.PrevInSection</td>
     <td>{{ .PrevInSection }}</td>
+  </tr>
+  <tr>
+    <td>.PublishDate</td>
+    <td>{{ .PublishDate }}</td>
   </tr>
   <tr>
     <td>.ReadingTime</td>
@@ -128,39 +102,39 @@
 <table class="{{ $class }}">
   <tr>
     <td>.File.Path</td>
-    <td>{{ .File.Path }}</td>
+    <td>{{ with .File }}{{ .Path }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.LogicalName</td>
-    <td>{{ .File.LogicalName }}</td>
+    <td>{{ with .File }}{{ .LogicalName }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.TranslationBaseName</td>
-    <td>{{ .File.TranslationBaseName }}</td>
+    <td>{{ with .File }}{{ .TranslationBaseName }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.ContentBaseName</td>
-    <td>{{ .File.ContentBaseName }}</td>
+    <td>{{ with .File }}{{ .ContentBaseName }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.BaseFileName</td>
-    <td>{{ .File.BaseFileName }}</td>
+    <td>{{ with .File }}{{ .BaseFileName }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.Ext</td>
-    <td>{{ .File.Ext }}</td>
+    <td>{{ with .File }}{{ .Ext }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.Lang</td>
-    <td>{{ .File.Lang }}</td>
+    <td>{{ with .File }}{{ .Lang }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.Dir</td>
-    <td>{{ .File.Dir }}</td>
+    <td>{{ with .File }}{{ .Dir }}{{ end }}</td>
   </tr>
   <tr>
     <td>.File.UniqueID</td>
-    <td>{{ .File.UniqueID }}</td>
+    <td>{{ with .File }}{{ .UniqueID }}{{ end }}</td>
   </tr>
 <table>
 
@@ -184,39 +158,119 @@
   </tr>
   <tr>
     <td>.Sections</td>
-    <td>{{ .Sections }}</td>
+    <td>
+      <details>
+        <summary>{{ .Sections }}</summary>
+        {{ range .Sections }}
+          {{ . }}<br>
+        {{ end }}
+      </details>
+    </td>
   </tr>
 </table>
 
-<h2>Git</h2>
+<h2>Hugo</h2>
 <table class="{{ $class }}">
   <tr>
-    <td>.GitInfo.AbbreviatedHash</td>
-    <td>{{ .GitInfo.AbbreviatedHash }}</td>
+    <td>hugo.Version</td>
+    <td>{{ hugo.Version }}</td>
   </tr>
   <tr>
-    <td>.GitInfo.AuthorName</td>
-    <td>{{ .GitInfo.AuthorName }}</td>
+    <td>hugo.BuildDate</td>
+    <td>{{ hugo.BuildDate }}</td>
   </tr>
   <tr>
-    <td>.GitInfo.AbbreviatedHash</td>
-    <td>{{ .GitInfo.AbbreviatedHash }}</td>
+    <td>hugo.CommitHash</td>
+    <td>{{ hugo.CommitHash }}</td>
   </tr>
   <tr>
-    <td>.GitInfo.AuthorEmail</td>
-    <td>{{ .GitInfo.AuthorEmail }}</td>
+    <td>hugo.Environment</td>
+    <td>{{ hugo.Environment }}</td>
+  </tr>
+</table>
+
+<h2>Site</h2>
+<table class="{{ $class }}">
+  <tr>
+    <td>site.BaseURL</td>
+    <td>{{ site.BaseURL }}</td>
   </tr>
   <tr>
-    <td>.GitInfo.AuthorDate</td>
-    <td>{{ .GitInfo.AuthorDate }}</td>
+    <td>site.BuildDrafts</td>
+    <td>{{ site.BuildDrafts }}</td>
   </tr>
   <tr>
-    <td>.GitInfo.Hash</td>
-    <td>{{ .GitInfo.Hash }}</td>
+    <td>site.Home</td>
+    <td>{{ site.Home }}</td>
   </tr>
   <tr>
-    <td>.GitInfo.Subject</td>
-    <td>{{ .GitInfo.Subject }}</td>
+    <td>site.IsMultiLingual</td>
+    <td>{{ site.IsMultiLingual }}</td>
+  </tr>
+  <tr>
+    <td>site.IsServer</td>
+    <td>{{ site.IsServer }}</td>
+  </tr>
+  <tr>
+    <td>site.Language.Lang</td>
+    <td>{{ site.Language.Lang }}</td>
+  </tr>
+  <tr>
+    <td>site.LastChange</td>
+    <td>{{ site.LastChange }}</td>
+  </tr>
+  <tr>
+    <td>site.Pages</td>
+    <td>
+      <details>
+        <summary>{{ site.Pages }}</summary>
+        {{ range site.Pages }}
+          {{ . }}<br>
+        {{ end }}
+      </details>
+    </td>
+  </tr>
+  <tr>
+    <td>site.RegularPages</td>
+    <td>
+      <details>
+        <summary>{{ site.RegularPages }}</summary>
+        {{ range site.RegularPages }}
+          {{ . }}<br>
+        {{ end }}
+      </details>
+    </td>
+  </tr>
+  <tr>
+    <td>site.Sections</td>
+    <td>
+      <details>
+        <summary>{{ site.Sections }}</summary>
+        {{ range site.Sections }}
+          {{ . }}<br>
+        {{ end }}
+      </details>
+    </td>
+  </tr>
+  <tr>
+    <td>site.Taxonomies</td>
+    <td>
+      <details>
+        <summary>{{ site.Taxonomies }}</summary>
+        {{ range site.Taxonomies }}
+          <details>
+            <summary>{{ len . }}</summary>
+            {{ range . }}
+              {{ . }}<br>
+            {{ end }}
+          </details>
+        {{ end }}
+      </details>
+    </td>
+  </tr>
+  <tr>
+    <td>site.Title</td>
+    <td>{{ site.Title }}</td>
   </tr>
 </table>
 
@@ -228,6 +282,6 @@ table, th, td {
   border: 1px solid black;
 }
 th, td {
-  padding: .25rem;
+  padding: .5rem;
 }
 </style>
