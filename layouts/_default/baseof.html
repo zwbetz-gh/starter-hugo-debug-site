@@ -1,31 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/custom.css">
-    <title>{{ .Title }} | {{ site.Title }}</title>
-  </head>
-  <body>
-    <div class="container">
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">{{ site.Title }}</a>
-      </nav>
-      <main>
-        {{ block "main" . }}{{ end }}
-        <hr>
-        {{ partial "debug-table.html" . }}
-      </main>
-      <hr>
-      <footer class="footer mt-auto py-3">
-        <div class="container">
-          <span class="text-muted">
-            {{ $github := "https://github.com/zwbetz-gh/starter-hugo-debug-site" }}
-            <a href="{{ $github }}">{{ $github }}</a>
-          </span>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
+{{ block "main" . }}{{ end }}
+<hr>
+<details>
+  <summary>Debug info</summary>
+  {{ partial "debug-table.html" . }}
+</details>

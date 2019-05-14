@@ -3,23 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/page-3/</loc>
-    <lastmod>2019-05-08T22:24:37-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/page-2/</loc>
-    <lastmod>2019-05-08T22:24:34-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/page-1/</loc>
-    <lastmod>2019-05-08T22:24:30-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/</loc>
-    <lastmod>2019-05-08T22:23:40-05:00</lastmod>
+    <loc>https://starter-hugo-debug-site.netlify.com/</loc>
+    <lastmod>2019-05-08T22:48:35-05:00</lastmod>
   </url>
   
 </urlset>

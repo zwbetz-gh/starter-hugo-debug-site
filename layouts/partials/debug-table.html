@@ -1,10 +1,18 @@
-{{ $class := "table table-sm table-bordered table-dark" }}
+{{ $class := "" }}
 
 <h2>Hugo</h2>
 <table class="{{ $class }}">
   <tr>
     <td>hugo.Version</td>
     <td>{{ hugo.Version }}</td>
+  </tr>
+  <tr>
+    <td>hugo.BuildDate</td>
+    <td>{{ hugo.BuildDate }}</td>
+  </tr>
+  <tr>
+    <td>hugo.Environment</td>
+    <td>{{ hugo.Environment }}</td>
   </tr>
 </table>
 
@@ -211,3 +219,15 @@
     <td>{{ .GitInfo.Subject }}</td>
   </tr>
 </table>
+
+<style>
+table {
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: .25rem;
+}
+</style>
